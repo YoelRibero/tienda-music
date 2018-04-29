@@ -1,0 +1,76 @@
+
+/*---Estilos Generales---*/
+
+body{
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+}
+
+.titulo-principal{
+	/*font-family: 'Faster One', cursive;*/
+	font-family: 'Lobster', cursive;
+	/*font-family: 'Press Start 2P', cursive;*/
+	/*font-family: 'Pacifico', cursive;*/
+	/*font-family: 'Dancing Script', cursive;*/
+	font-size: 1.25rem;
+	opacity: 0;
+}
+
+/*--------Colores--------*/
+
+.bg-rosa{
+	background: #FA4659;
+}
+.bg-amarillo{
+	background: #D6C481;
+}
+.bg-celeste{
+	background: #DBEDF3;
+}
+.bg-azul{
+	background: #404B69;
+}
+.bg-azosc{
+	background: #283149;
+}
+.bg-menu{
+	background: #444;
+	opacity: 0.5;
+}
+
+/*------Imágen banner------*/
+
+.slider{
+	background: url(../img/banner.jpg);
+	height: 92vh;
+	background-size: cover; 
+    background-position: center;
+    opacity: 0.8;
+}
+
+/*------Titulo Banner---------*/
+
+.tit-banner{
+	font-family: 'Lobster', cursive;
+}
+
+/*---------Alerta oculta---------*/
+
+.alert{
+	display: none;
+}
+
+/*------Formulario de contacto--------*/
+
+.contacto-gracias{
+	display: none;
+}
+
+/*--------Estilos Catálogo--------*/
+
+.titulo-catalogo:hover{
+	background: #404B69;
+}
+
+
+

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="img/logo.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Faster+One|Lobster|Pacifico|Press+Start+2P" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+    <!-- SCROLL -->
+
+    <script src="js/smooth-scroll.min.js"></script>
+    <script>
+      
+        var scroll = new SmoothScroll('a[href*="#"]', {
+          // Selectors
+          ignore: '[data-scroll-ignore]', // Selector for links to ignore (must be a valid CSS selector)
+          header: null, // Selector for fixed headers (must be a valid CSS selector)
+
+          // Speed & Easing
+          speed: 500, // Este ítem corresponde a la velocidad a la q va a ocurrir la animación, esta en milisegundos.
+          offset: 0, // Integer or Function returning an integer. How far to offset the scrolling anchor location in pixels
+          easing: 'easeInOutCubic', // Easing pattern to use
+          customEasing: function (time) {
+
+            // Function. Custom easing pattern
+            // If this is set to anything other than null, will override the easing option above
+
+            // return <your formulate with time as a multiplier>
+
+            // Example: easeInOut Quad
+            return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+
+          },
+
+          // Callback API
+          before: function (anchor, toggle) {}, // Callback to run before scroll
+          after: function (anchor, toggle) {} // Callback to run after scroll
+        });
+
+    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/eskju.jquery.scrollflow.min.js"></script>
+
+    <title>Music</title>
+
+  </head>
+
+  <body data-spy="scroll" data-target="#menu">
+      
+    <!-- Imágen Banner -->
+      
+    <section class="container-fluid slider d-flex justify-content-center">
+
+      <h1 class="display-4 text-white text-center pt-5 mt-5 tit-banner" id="bienvenidos">Bienvenidos!</h1>
+      
+    </section>
+
+    <!-- Fin Imágen Banner -->
+
+    <!-- NavBar -->
+    
+      <nav class="navbar navbar-dark bg-amarillo navbar-expand-md sticky-top" id="menu">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> 
+          Music
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> 
+          <div class="navbar-nav mr-auto ml-auto text-center nav-pills"> 
+            <a data-scroll class="nav-item nav-link active" href="#inicio">Inicio</a> 
+            <a data-scroll class="nav-item nav-link" href="#nosotros">Nosotros</a>
+            <a data-scroll class="nav-item nav-link" href="catalogo.html">Catálogo</a>
+            <a data-scroll class="nav-item nav-link" href="#contacto">Contacto</a> 
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+            <button class="btn btn-outline-light" data-toggle="modal" data-target="#modal-ing" id="button-ing">Suscríbete!</button>
+          </div>
+        </div>
+
+      </nav>
+
+      <!-- MODAL INGRESA -->
+
+        <div class="modal" tabindex="-1" role="dialog" id="modal-ing">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Ingresa con tu nombre y tu E-mail!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group row" id="nombre-input">
+                    <label class="col-2 col-form-label">Nombre:</label>
+                    <input type="text" placeholder="Escribe tu nombre aquí" class="form-control col-8" id="name">
+                  </div>
+                  <div class="form-group row" id="mail-input">
+                    <label class="col-2 col-form-label">Email:</label>
+                    <input type="email" placeholder="Escribe tu email" class="form-control col-8" id="email">
+                  </div>
+                </form>
+                <div class="alert alert-success" role="alert" id="alert">
+                  Tu registro se ha realizado con éxito!.
+                </div>
+                <div class="alert alert-danger" role="alert" id="alert-false">
+                  El nombre o el mail son incorrectos!.
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btn-ing">Ingresar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Lista de productos -->
+
+    <div class="container-fluid" id="section-catalogo">
+
+        <!-- CARDS -->
+
+      <section class="container py-5 text-center" id="inicio">
+
+        <h3 class="text-uppercase text-center mb-4 scrollflow -slide-right -pop">Destacados</h3>
+        <hr>
+        <p class="lead text-center mb-5 scrollflow -slide-left -pop">Observa los productos destacados de la semana, con hasta un 40% off. No te pierdas estas ofertas, sólo están por unos pocos días.</p>
+
+        <div class="card-deck">
+          <div class="card">
+            <a href="#"><img class="card-img-top img-fluid scrollflow -slide-top -opacity" src="img/guitarra.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Guitarra Electro-Acustica</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+              <!-- <a class="btn btn-primary" href="#" role="button">Link</a> -->
+              
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong1">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Guitarra Electro-Acustica</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/guitarra.jpg" width="200px" height="200px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+
+            </div>
+          </div>
+
+          <div class="card">
+            <a href="#"><img class="card-img-top img-fluid scrollflow -slide-top -opacity" src="img/bateria.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Batería Electrónica</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong2">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Batería Electrónica</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/bateria.jpg" width="200px" height="200px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+            </div>
+
+          </div>
+
+          <div class="card">
+            <a href="#"><img class="card-img-top img-fluid scrollflow -slide-top -opacity" src="img/guitarra-electrica.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Guitarra Eléctrica</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong3">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Guitarra Eléctrica</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/guitarra-electrica.jpg" width="200px" height="150px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+
+            </div>
+          </div>
+        </div>
+        <div class="card-deck mt-5">
+          <div class="card">
+            <a href="#"><img class="card-img-top img-fluid scrollflow -slide-top -opacity" src="img/trompeta.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Trompeta</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong4">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Trompeta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/trompeta.jpg" width="200px" height="200px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+
+            </div>
+          </div>
+          <div class="card">
+            <a href="#" data-toggle="modal" data-target="#exampleModalLong5"><img class="card-img-top img-fluid scrollflow -slide-top -opacity" src="img/guitarra-electrica-2.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Guitarra Eléctrica</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong5">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Guitarra Eléctrica</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/guitarra-electrica-2.jpg" width="200px" height="150px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+
+            </div>
+          </div>
+          <div class="card">
+            <a href="#" data-toggle="modal" data-target="#exampleModalLong6"><img class="card-img-top img-fluid py-5 my-2 scrollflow -slide-top -opacity" src="img/bongo.jpg" alt="Card image cap"></a>
+            <div class="card-block">
+              <h4 class="card-title my-3 mx-3">Bongó</h4>
+              <div class="">
+                <span class="h5">U$D</span><span class="display-4 align-middle">9</span>
+              </div>
+
+              <!-- MODAL 1 -->
+
+              <!-- Button trigger modal -->
+
+                <button type="button" class="btn bg-azosc text-white my-2 mx-3" data-toggle="modal" data-target="#exampleModalLong6">
+                  Más Información
+                </button>
+
+                <!-- MODAL -->
+
+                <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Bongó</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex">
+                        <img src="img/bongo.jpg" width="200px" height="150px" class="rounded-circle mt-4">
+                        <p class="px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus facilis cupiditate est nesciunt fugiat eos voluptatem doloribus eius unde eligendi dolor minima odio dolore, autem eveniet rem non, ex obcaecati sit asperiores sequi expedita ipsa! Inventore corporis ipsum, expedita consequatur, similique, odio nisi facilis itaque alias saepe aliquid voluptate obcaecati ad blanditiis iure. Ex porro, quis, nemo maxime illo ipsum officia illum quam pariatur corporis ut, hic accusantium? Repellendus deserunt dicta pariatur ex repudiandae odit provident illo temporibus molestias, eveniet nesciunt nobis voluptate labore sit in veritatis, ducimus voluptates id obcaecati mollitia delectus quasi. Reiciendis laudantium facere inventore voluptatem consequatur.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- FIN MODAL 1 -->
+
+            </div>
+          </div>
+        </div>
+        </section>
+
+        <!-- FIN CARDS -->
+    </div>
+
+     <!-- NOSOTROS -->
+
+      <div class="container-fluid bg-celeste" id="nosotros">
+        <div class="container py-5 text-dark">
+          
+          <h1 class="display-4 text-center scrollflow -slide-bottom -pop">Music Company</h1>
+        
+          <hr class="">
+          
+          <div class="row d-flex align-items-center my-5 py-5 scrollflow -slide-right -pop">
+            <div class="col-md-7">
+              <h2 class="display-4">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+              <img class=" img-fluid mx-auto" src="img/nosotros-1.jpg" alt="Generic placeholder image">
+            </div>
+          </div>
+          
+          <hr class="">
+          
+          <div class="row d-flex align-items-center my-5 py-5 scrollflow -slide-left -pop">
+            <div class="col-md-5 pull-md-7">
+              <img class=" img-fluid mx-auto" src="img/nosotros-2.jpg" alt="Generic placeholder image">
+            </div>
+            <div class="col-md-7 push-md-5">
+              <h2 class="display-4">Oh yeah, it's that good.<span class="text-muted">See for yourself.</span></h2>
+              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            
+          </div>
+          
+          <hr class="">
+          
+          <div class="row d-flex align-items-center my-5 py-5 scrollflow -slide-right -pop">
+            <div class="col-md-7">
+              <h2 class="display-4">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+              <img class=" img-fluid mx-auto" src="img/nosotros-3.jpg" alt="Generic placeholder image">
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    <!-- FIN NOSOTROS -->
+
+    <!-- FORMULARIO DE CONTACTO -->
+
+    <div class="container-fluid bg-azosc" id="contacto">
+        <section class="container py-5 scrollflow -slide-bottom -opacity">
+          <h3 class="text-uppercase text-center mb-4 pt-3 text-white" id="tit-con">Formulario de contacto</h3>
+          <p class="lead text-center mb-4 text-secondary" id="p-con">Dejános tu nombre y tu E-mail para que nosotros nos contactémos contigo!</p>
+          
+              <form class="form-inline flex-column flex-md-row justify-content-center" id="section-4">
+                <div class="form-group mx-3 my-3">
+                  <label for="" class="mx-3 text-white">Nombre:</label>
+                  <input type="text" placeholder="Escribe tu nombre aquí" class="form-control" id="name-contacto">
+                </div>
+                <div class="form-group mx-3 my-3">
+                  <label for="" class="mx-3 text-white">Email:</label>
+                  <input type="email" placeholder="Escribe tu email" class="form-control" id="email-contacto">
+                </div>
+                <div class="form-group mx-3 my-3">
+                  <button class="btn btn-secondary" id="btn-contacto">Enviar</button>
+                </div>
+              </form>
+
+          <h4 class="py-5 text-center text-white contacto-gracias" id="contacto"></h4>
+        </section>
+      </div>
+
+    <!-- FIN FORMULARIO CONTACTO -->
+
+    <!-- FOOTER -->
+
+      <footer class="container-fluid bg-dark">
+        <div class="row text-white py-4 text-white">
+          <div class="col-md-3 border-right">
+            <img src="img/logo.jpg" alt="" width="70px" height="auto" class="float-left mr-3">
+            <h4 class="lead">Music!</h4>
+            <footer class="blockquote-footer">Página web creada por <cite title="Source Title">Yoel Ribero</cite></footer>
+          </div>
+          <div class="col-md-3 text-center border-right">
+            <h4 class="lead">Visita nuestro local</h4>
+            <p>Estamos en Av. 18 de Julio 1838 esquina Paraguay</p>
+          </div>
+          <div class="col-md-3 text-center border-right">
+            <h4 class="lead">Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, quidem!</p>
+          </div>
+          <div class="col-md-3 text-center">
+            <h4 class="lead">Síguenos</h4>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square mx-1 my-2 text-white h5"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square mx-2 my-2 text-white h5"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram my-2 text-white h5"></i></a>
+          </div>
+        </div>
+      </footer>
+
+  <!-- FIN FOOTER -->
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+
+  </body>
+
+</html>

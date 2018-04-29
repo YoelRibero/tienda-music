@@ -1,0 +1,19 @@
+{
+  "instrumentosCuerda": [
+    {
+      "id": 1,
+      "nombre": "Guitarra" ,
+      "imagen": "../img/productos/guitarra.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Guitarra Eléctrica 1" ,
+      "imagen": "../img/productos/guitarra-electrica.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Guitarra Eléctrica 2" ,
+      "imagen": "../img/productos/guitarra-electrica-2.jpg"
+    }
+  ]
+}
